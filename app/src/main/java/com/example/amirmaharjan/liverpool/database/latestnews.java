@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.amirmaharjan.liverpool.model.LatestNews;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  */
 
 public class latestnews {
-    databasehelper dbHelper;
+    SQLiteOpenHelper dbHelper;
     SQLiteDatabase db;
 
     LatestNews ln;
@@ -37,7 +38,7 @@ public class latestnews {
         values.put(databasehelper.NEWS_PUBLISHDATE,latestNews.getPublishdate());
         values.put(databasehelper.NEWS_DESCRIPTION,latestNews.getDescription());
         values.put(databasehelper.NEWS_IMAGE,latestNews.getThumb());
-        db.insert("databasehelper.TABLE_LATESTNEWS",null,values);
+        db.insert(databasehelper.TABLE_LATESTNEWS,null,values);
 
     }
 

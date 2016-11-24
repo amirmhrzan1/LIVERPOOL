@@ -66,7 +66,7 @@ public class databasehelper extends SQLiteOpenHelper{
     public static final String TICKET_PUBLISHDATE="publishdate";
 
     private static final String CREATE_TABLE_TICKETNEWS = "CREATE TABLE "
-            + TABLE_TICKETNEWS +"(" + TICKET_ID + "BIGINT PRIMARY KEY,"
+            + TABLE_TICKETNEWS + "(" + TICKET_ID +" BIGINT PRIMARY KEY,"
             + TICKET_TITLE + " VARCHAR(500), "
             + TICKET_IMAGE + " VARCHAR(500), "
             + TICKET_DESCRIPTION + " TEXT, "

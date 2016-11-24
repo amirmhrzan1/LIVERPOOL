@@ -36,7 +36,7 @@ public class mediawatch {
         values.put(databasehelper.MEDIA_PUBLISHDATE,latestNews.getPublishdate());
         values.put(databasehelper.MEDIA_DESCRIPTION,latestNews.getDescription());
         values.put(databasehelper.MEDIA_IMAGE,latestNews.getThumb());
-        db.insert("databasehelper.TABLE_MEDIAWATCH",null,values);
+        db.insert(databasehelper.TABLE_MEDIAWATCH,null,values);
 
     }
 
@@ -47,7 +47,7 @@ public class mediawatch {
                 databasehelper.MEDIA_LINK,databasehelper.MEDIA_PUBLISHDATE};
         Cursor cursor = db.query(databasehelper.TABLE_MEDIAWATCH,columns,null,null,null,null,null);
         while(cursor.moveToNext()){
-            int index1= cursor.getColumnIndex(databasehelper.MEDIA_ID);
+            int index1=cursor.getColumnIndex(databasehelper.MEDIA_ID);
             int index2=cursor.getColumnIndex(databasehelper.MEDIA_TITLE);
             int index3=cursor.getColumnIndex(databasehelper.MEDIA_IMAGE);
             int index4=cursor.getColumnIndex(databasehelper.MEDIA_LINK);

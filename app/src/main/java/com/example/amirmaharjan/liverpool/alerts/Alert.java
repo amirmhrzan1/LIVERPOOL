@@ -17,18 +17,4 @@ public class Alert extends AlertDialog {
         this.context=context;
     }
 
-
-
-
-    private Builder initAlertDialog(String title, String msg) {
-        Builder builder = new Builder(context);
-        if (title.isEmpty()) {
-            title ="FinalRss";
-        }
-        builder.setTitle(title);
-        builder.setMessage(msg);
-        return builder;
-    }
-
-
 }

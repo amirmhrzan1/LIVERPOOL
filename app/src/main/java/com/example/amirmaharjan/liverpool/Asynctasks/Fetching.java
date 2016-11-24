@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.amirmaharjan.liverpool.adaptors.RecyclerAdapters;
 import com.example.amirmaharjan.liverpool.database.databasehelper;
@@ -39,7 +40,8 @@ public class Fetching extends AsyncTask<Integer, Void, Void> {
         {
             latestnews news = new latestnews(context);
             news.Open();
-            latest =  news.GetAll();
+            latest=news.GetAll();
+            Log.d("latestnews",""+latest.size());
             news.close();
 
         }
@@ -48,6 +50,7 @@ public class Fetching extends AsyncTask<Integer, Void, Void> {
             mediawatch media = new mediawatch(context);
             media.Open();
             latest = media.GetAll();
+            Log.d("mediawatch",""+latest.size());
             media.close();
 
         }
@@ -56,6 +59,7 @@ public class Fetching extends AsyncTask<Integer, Void, Void> {
             ticketnews ticket = new ticketnews(context);
             ticket.Open();
             latest = ticket.GetAll();
+            Log.d("ticketnews",""+latest.size());
             ticket.close();
         }
         return null;

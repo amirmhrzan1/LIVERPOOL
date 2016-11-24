@@ -36,25 +36,25 @@ public class ticketnews {
         values.put(databasehelper.TICKET_PUBLISHDATE,latestNews.getPublishdate());
         values.put(databasehelper.TICKET_DESCRIPTION,latestNews.getDescription());
         values.put(databasehelper.TICKET_IMAGE,latestNews.getThumb());
-        db.insert("databasehelper.TABLE_TICKETNEWS",null,values);
+        db.insert(databasehelper.TABLE_TICKETNEWS,null,values);
 
     }
 
 
     public ArrayList<LatestNews> GetAll() {
         ArrayList<LatestNews> array = new ArrayList<LatestNews>();
-        String[] columns = {databasehelper.TICKET_ID,databasehelper.TICKET_TITLE,databasehelper.TICKET_IMAGE,databasehelper.TICKET_DESCRIPTION,
+        String[] columns = {databasehelper.TICKET_TITLE,databasehelper.TICKET_IMAGE,databasehelper.TICKET_DESCRIPTION,
                 databasehelper.TICKET_LINK,databasehelper.TICKET_PUBLISHDATE};
         Cursor cursor = db.query(databasehelper.TABLE_TICKETNEWS,columns,null,null,null,null,null);
         while(cursor.moveToNext()){
-            int index1= cursor.getColumnIndex(databasehelper.TICKET_ID);
+
             int index2=cursor.getColumnIndex(databasehelper.TICKET_TITLE);
             int index3=cursor.getColumnIndex(databasehelper.TICKET_IMAGE);
             int index4=cursor.getColumnIndex(databasehelper.TICKET_LINK);
             int index5=cursor.getColumnIndex(databasehelper.TICKET_DESCRIPTION);
             int index6 = cursor.getColumnIndex(databasehelper.TICKET_PUBLISHDATE);
             LatestNews latest = new LatestNews();
-            latest.setId(cursor.getString(index1));
+
             latest.setTitle(cursor.getString(index2));
             latest.setThumb(cursor.getString(index3));
             latest.setLink(cursor.getString(index4));

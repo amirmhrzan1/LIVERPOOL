@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">LIVERPOOL</string>
+    <string name = "latest_news"></string>
+    <string name = "media_watch"></string>
+    <string name = "ticket_news"></string>
+
+    <!--fonts-->
+    <string name="font_raleway_regular">fonts/Raleway-Regular.ttf</string>
+    <string name="font_raleway_bold">fonts/Raleway-Bold.ttf</string>
+    <string name="font_raleway_semi_bold">fonts/Raleway-SemiBold.ttf</string>
+    <string name="font_roboto_light">fonts/Roboto-Light.ttf</string>
+    <string name="font_sf_ui_text_m">fonts/SF-UI-Text-Medium.otf</string>
 </resources>

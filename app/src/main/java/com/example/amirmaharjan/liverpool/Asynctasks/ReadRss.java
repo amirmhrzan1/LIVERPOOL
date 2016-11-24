@@ -59,18 +59,13 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
     latestnews news;
     mediawatch media;
     ticketnews ticket;
-    final Activity activity;
+    //final Activity activity;
 
     URL url;
 
-    public ReadRss(Context context,TabLayout tabLayout, ViewPager viewPager, FragmentManager fm) {
+    public ReadRss(Context context) {
         this.context = context;
-        this.tabLayout = tabLayout;
-        this.viewPager = viewPager;
-        this.fm = fm;
-        activity = (Activity)context;
-
-        //this.recyclerView = recyclerView;
+       // this.tabLayout = tabLayout;
         progressDialog = new ProgressDialog(context);
         ln=new ArrayList<LatestNews>();
         mw=new ArrayList<LatestNews>();
@@ -131,33 +126,7 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         progressDialog.dismiss();
-        final MyPagerAdaptor adapter = new MyPagerAdaptor
-                (fm, tabLayout.getTabCount());
-        viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
-
-
-
-        // RecyclerAdapters adapter = new RecyclerAdapters(context,latest);
-       // recyclerView.setLayoutManager(new LinearLayoutManager(context));
-       // recyclerView.setAdapter(adapter);
 
     }
 
@@ -167,12 +136,13 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
         if (data != null) {
             latest= new ArrayList<>();
             Element root = data.getDocumentElement();
-            Node channel = root.getChildNodes().item(1);
-            NodeList items = channel.getChildNodes();
-            Log.d("number", "" + items.getLength());
+            NodeList items = root.getElementsByTagName("item");
+           // Node channel = root.getChildNodes().item(1);
+          //  NodeList items = channel.getChildNodes();
+           Log.d("number", "" + items.getLength());
             for (int i = 0; i < items.getLength(); i++) {
                 Node currentchild = items.item(i);
-                if (currentchild.getNodeName().equalsIgnoreCase("item")) {
+                //if (currentchild.getNodeName().equalsIgnoreCase("item")) {
                     LatestNews item = new LatestNews();
                     NodeList itemchild = currentchild.getChildNodes();
                     for (int j = 0; j < itemchild.getLength(); j++) {
@@ -192,9 +162,8 @@ public class ReadRss extends AsyncTask<Void,Void,Void> {
                     }
                     latest.add(item);
 
-                    Log.d("itemtitle", item.getTitle());
 
-                }
+              //  }
 
 
             }

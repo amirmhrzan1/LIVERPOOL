@@ -5,14 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
     android:orientation="vertical"
-    app:cardElevation="4dp"
+    app:cardElevation="10dp"
     app:cardCornerRadius="12dp"
     app:cardBackgroundColor="#81C784">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="3dp">
 
         <TextView
             android:id="@+id/title"
@@ -39,7 +39,9 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/imageview"
             android:layout_centerHorizontal="true"
-            android:id="@+id/link" />
+            android:id="@+id/link"
+            android:autoLink="web"
+            android:clickable="true"/>
 
         <TextView
             android:layout_width="match_parent"
